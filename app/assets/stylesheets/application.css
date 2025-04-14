@@ -1,0 +1,12 @@
+/* Optional: Style buttons to look nicer */
+.action-buttons {
+  display: none; /* Initially hide the buttons */
+}
+
+.action-buttons a {
+  margin-right: 10px; /* Space between buttons */
+}
+
+.action-buttons a:hover {
+  background-color: #ddd; /* Hover effect */
+}
