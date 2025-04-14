@@ -1,1 +1,18 @@
-<h1> about... </h1>
+<h1> Weather </h1>
+
+<%= form_with url: home_about_path, method: :get, local: true do %>
+    <%= label_tag :city, "Enter City:" %>
+    <%= text_field_tag :city, params[:city] %>
+    <%= submit_tag "Check Weather" %>
+  <% end %>
+
+<% if @weather["main"] %>
+  <div class="bg-blue-100 p-4 rounded-xl shadow-md w-64">
+    <h3 class="font-bold text-lg mb-2">Weather in <%= @weather["name"] %></h3>
+    <p><%= @weather["main"]["temp"] %>°C</p>
+    <p><%= @weather["weather"][0]["description"].capitalize %></p>
+    <%= image_tag "https://openweathermap.org/img/wn/#{@weather["weather"][0]["icon"]}@2x.png" %>
+  </div>
+<% else %>
+  <p class="text-red-500">Weather data unavailable.</p>
+<% end %>

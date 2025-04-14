@@ -4,3 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
 end
+
+def main
+  @weather = WeatherService.get_weather("Tokyo") # or use a dynamic city
+end
